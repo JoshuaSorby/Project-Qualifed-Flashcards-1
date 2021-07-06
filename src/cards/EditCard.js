@@ -10,8 +10,8 @@ function EditCard() {
     const history = useHistory();
     const [card, setCard] = useState([]);
     const {cardId} = useParams();
-    const [front, setFront] = useState();
-    const [back, setBack] = useState();
+    const [front, setFront] = useState("");
+    const [back, setBack] = useState("");
     const handleFront = (event) => setFront(event.target.value)
     const handleBack = (event) => setBack(event.target.value)
     const handleSubmit = event => {

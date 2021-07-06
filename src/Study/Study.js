@@ -4,22 +4,32 @@ import { useParams } from "react-router";
 import Header from "../Layout/Header";
 import Layout from "../Layout";
 import DeckList from "../Deck/DeckList";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 function Study() {
 
     const {deckId} = useParams();
-    const [deck, setDeck] = useState();
+    const {url} = useRouteMatch();
     const [cardList, setCardList] = useState([]);
     const [name, setName] = useState();
     const [description, setDescription] = useState()
     const [index, setIndex] = useState(0);
     const [side, setSide] = useState("front");
+    const history = useHistory();
 
     const nextButton = () => {
-        if (side == "back") {
+             
+        if (side == "back" && index < cardList.length - 1) {
             return <button onClick={() => {
             setSide("front");
             setIndex(index + 1)
+            }}>Next</button>
+        } else if (side == "back") {
+            return <button onClick={() => {
+                if (window.confirm(`Restart cards?\n\nClicking "cancel" will return you to the homepage`)) {
+                    window.location.reload();
+                    console.log(url)
+                } else {history.push("/")}
             }}>Next</button>
         }
     }

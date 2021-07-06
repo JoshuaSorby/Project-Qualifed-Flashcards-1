@@ -1,12 +1,11 @@
 
 import React, { useEffect, useState } from "react";
 import { readDeck } from "../utils/api";
-import Deck from "./Deck";
 
  function DeckList({deckId}) {
     const [deck, setDeck] = useState([])
     useEffect(() => {
-       readDeck(deckId.deckId)
+       readDeck(deckId)
        .then(setDeck)
       }, [])
 

@@ -6,15 +6,15 @@ import { updateDeck, readDeck } from "../utils/api";
 
 function EditDeck () {
   const {deckId} = useParams();
-  const [deck, setDeck] = useState({});
+  const [deck, setDeck] = useState({"id": '', "name": '', "description": '', "cards": '',});
   useEffect(() => {
     readDeck(deckId)
     .then(setDeck);
   }, [])
   
   const history = useHistory();
-  const [name, setName] = useState();
-  const [desc, setDesc] = useState();
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
 
   useEffect(() => {
     setName(deck.name)
@@ -23,24 +23,26 @@ function EditDeck () {
   useEffect(() => {
     (setDesc(deck.description))
   }, [deck])
+
+
   
   const handleName = (event) => setName(event.target.value)
   const handleDesc = (event) => setDesc(event.target.value)
   const handleSubmit = event => {
     event.preventDefault();
         
-    const deck = {"name": name, "description": desc, "id":deckId};
+    const deck = {"name":name, "description":desc, "id":deckId};
     updateDeck(deck);
-    history.push('/')
+    
   }
 
     return <div>
     <Header />
     <nav><Link to="/">Home</Link> / <Link to="./"> <p>{deck.name}</p></Link><p>Edit Deck</p></nav>
     <form onSubmit={handleSubmit}>
-    <div class="d-flex flex-column m-3">
+    <div className="d-flex flex-column m-3">
                     <label htmlFor="name">
-                    <input class="d-flex w-75"
+                    <input className="d-flex w-75"
                     type="text"
                     id="name"
                     name="name"
@@ -49,7 +51,7 @@ function EditDeck () {
                     </label>
         
                     <label htmlFor="desc"></label>
-                    <textarea class="d-flex w-75" 
+                    <textarea className="d-flex w-75" 
                     id="desc"
                     name="desc"
                     onChange={handleDesc}

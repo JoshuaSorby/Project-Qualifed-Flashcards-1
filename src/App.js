@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import Layout from "./Layout";
 import NotFound from "./Layout/NotFound";
 import NewDeck from "./Layout/NewDeck";
-import Card from "./cards/Card";
 import Decks from "./Deck/Decks";
 import View from "./Layout/View";
 import AddCards from "./cards/AddCards"

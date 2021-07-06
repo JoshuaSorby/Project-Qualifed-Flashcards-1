@@ -10,9 +10,9 @@ import Deck from "./Deck";
         const signal = abortController.signal;
         try {listDecks(signal).then((response) => setDecks(response));} catch (error) {if (error !== "AbortError") throw error}
       }, [])
-    
+      
     return (
-        <div class="d-flex justify-content-center">
+        <div className="d-flex justify-content-center">
             <ul>
                 <Deck decks={decks}/>
             </ul>

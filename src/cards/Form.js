@@ -5,9 +5,9 @@ function Form({handleSubmit, handleFront, handleBack, front, back}) {
     const history = useHistory();
 
     return <form onSubmit={handleSubmit}>
-                <div class="d-flex flex-column m-3">
+                <div className="d-flex flex-column m-3">
                     <label htmlFor="front">
-                    <textarea class="d-flex w-75"
+                    <textarea className="d-flex w-75"
                     id="front"
                     name="front"
                     onChange={handleFront}
@@ -15,14 +15,14 @@ function Form({handleSubmit, handleFront, handleBack, front, back}) {
                     </label>
         
                     <label htmlFor="back"></label>
-                    <textarea class="d-flex w-75" 
+                    <textarea className="d-flex w-75" 
                     id="back"
                     name="back"
                     onChange={handleBack}
                     value={back}/>
                 </div>
                 <button type="submit">Save</button>
-                <Link to="../"><button type="button">cancel</button></Link>
+                <Link to='./'><button type="button">cancel</button></Link>
             </form>
 }
 

@@ -23,9 +23,9 @@ function Card({deckId}) {
             history.push('/')
           }}}>delete
         </button>
-        <ul>
+
             <FilterCardList deckId={deckId}/>
-        </ul>
+
     </div>
     </div>
       )

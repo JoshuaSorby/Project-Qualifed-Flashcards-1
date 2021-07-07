@@ -6,9 +6,9 @@ function View() {
     const {deckId} = useParams();
     return <div>
         <Layout />
-        <ul>
+        
             <Card deckId={deckId}/>
-        </ul>
+        
         
     </div>
 

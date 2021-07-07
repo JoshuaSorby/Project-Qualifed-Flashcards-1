@@ -23,7 +23,7 @@ function AddCards() {
     useEffect(() => {
         try {readDeck(deckId).then((result) => setDeck(result))
         } catch (error) {if (error !== "AbortError") throw error}
-      }, [])
+      }, [deckId])
       return (
         <div>
             <Header />

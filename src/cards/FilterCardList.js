@@ -14,18 +14,18 @@ function FilterCardList() {
             .then((result) => setDeck(result))
             
         } catch (error) {if (error !== "AbortError") throw error}
-      }, [])
+      }, [deckId])
       useEffect(() => {
         try {readDeck(deckId)
             .then((result) => setCardList(result.cards))
             
         } catch (error) {if (error !== "AbortError") throw error}
-      }, [])
+      }, [deckId])
 
     return (
         <div>
             <nav><Link to="/">Home</Link> / <p>{deck.name}</p> </nav>
-            <CardList cardList={cardList}/>
+            <ul><CardList cardList={cardList}/></ul>
         </div>
     
     )

@@ -23,7 +23,7 @@ function EditCard() {
     useEffect(() => {
         try {readCard(cardId).then((result) => setCard(result))
         } catch (error) {if (error !== "AbortError") throw error}
-      }, [])
+      }, [cardId])
       useEffect(() => {
           setFront(card.front)
       }, [card])

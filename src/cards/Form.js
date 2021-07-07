@@ -1,8 +1,7 @@
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 function Form({handleSubmit, handleFront, handleBack, front, back}) {
-    const history = useHistory();
 
     return <form onSubmit={handleSubmit}>
                 <div className="d-flex flex-column m-3">

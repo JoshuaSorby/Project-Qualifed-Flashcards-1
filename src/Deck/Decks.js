@@ -5,16 +5,18 @@ import Deck from "./Deck";
 
  function Decks() {
     const [decks, setDecks] = useState([])
+    const deckList = "";
+
     useEffect(() => {
-        const abortController = new AbortController();
-        const signal = abortController.signal;
-        try {listDecks(signal).then((response) => setDecks(response));} catch (error) {if (error !== "AbortError") throw error}
+        listDecks()
+        .then(setDecks);
       }, [])
+
       
     return (
         <div className="d-flex justify-content-center">
             <ul>
-                <Deck decks={decks}/>
+                <Deck decks={decks} deckList={deckList}/>
             </ul>
         </div>
     )

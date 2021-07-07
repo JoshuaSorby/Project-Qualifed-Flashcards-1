@@ -1,10 +1,9 @@
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {deleteDeck} from "../utils/api/index"
 
 
 
 function Deck({decks}) {
-    const history = useHistory();
 
         return decks.map((item) => {
             return <li key={item.id}>
@@ -20,8 +19,8 @@ function Deck({decks}) {
                     <Link to={`/decks/${item.id}/study`}><button>study</button></Link>
                     <button onClick={() => {
                         if (window.confirm("Are you sure you want to delete this deck?")) {
-                            deleteDeck(item.id);
-                            history.push('/')
+                            deleteDeck(item.id)
+                            .then(window.location.reload())
                             }}}>Delete 
                     </button>
                  </div>

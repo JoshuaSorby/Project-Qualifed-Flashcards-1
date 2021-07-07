@@ -11,34 +11,14 @@
       "id": 2
     },
     {
-      "name": "Does This Have an Id?",
-      "description": "That is, does the list item have an id",
-      "id": 5
-    },
-    {
-      "name": "test",
-      "description": "test",
-      "id": 6
-    },
-    {
-      "name": "good",
-      "description": "finally",
-      "id": 8
-    },
-    {
-      "name": "id",
-      "description": "test",
-      "id": 9
-    },
-    {
-      "name": "Any more warnings?",
-      "description": "Hopefully not",
-      "id": 10
-    },
-    {
-      "name": "1",
+      "name": "545",
       "description": "",
-      "id": 11
+      "id": 3
+    },
+    {
+      "name": "333",
+      "description": "",
+      "id": 5
     }
   ],
   "cards": [
@@ -159,12 +139,6 @@
       "front": "Deck Id",
       "back": "Is NOT here",
       "id": 23
-    },
-    {
-      "front": "12",
-      "back": "12",
-      "id": 24,
-      "deckId": 5
     }
   ]
 }

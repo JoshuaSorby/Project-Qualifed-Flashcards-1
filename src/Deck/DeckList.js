@@ -7,7 +7,7 @@ import { readDeck } from "../utils/api";
     useEffect(() => {
        readDeck(deckId)
        .then(setDeck)
-      }, [])
+      }, [deckId])
 
       return <div>
         <h2>{deck.name}</h2>

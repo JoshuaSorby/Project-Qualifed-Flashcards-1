@@ -2,14 +2,11 @@ import { useEffect, useState } from "react"
 import { readDeck } from "../utils/api"
 import { useParams } from "react-router";
 import Header from "../Layout/Header";
-import Layout from "../Layout";
-import DeckList from "../Deck/DeckList";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Study() {
 
     const {deckId} = useParams();
-    const {url} = useRouteMatch();
     const [cardList, setCardList] = useState([]);
     const [name, setName] = useState();
     const [description, setDescription] = useState()
@@ -19,16 +16,15 @@ function Study() {
 
     const nextButton = () => {
              
-        if (side == "back" && index < cardList.length - 1) {
+        if (side === "back" && index < cardList.length - 1) {
             return <button onClick={() => {
             setSide("front");
             setIndex(index + 1)
             }}>Next</button>
-        } else if (side == "back") {
+        } else if (side === "back") {
             return <button onClick={() => {
                 if (window.confirm(`Restart cards?\n\nClicking "cancel" will return you to the homepage`)) {
                     window.location.reload();
-                    console.log(url)
                 } else {history.push("/")}
             }}>Next</button>
         }
@@ -40,17 +36,17 @@ function Study() {
             .then((result) => setName(result.name))
             
         } catch (error) {if (error !== "AbortError") throw error}
-      }, [])
+      }, [deckId])
       useEffect(() => {
          readDeck(deckId)
             .then((result) => setCardList(result.cards))
-      }, [])
+      }, [deckId])
       useEffect(() => {
         try {readDeck(deckId)
             .then((result) => setDescription(result.description))
             
         } catch (error) {if (error !== "AbortError") throw error}
-      }, [])
+      }, [deckId])
     if ( cardList.length < 2 ) return (
         <div>
             <Header />

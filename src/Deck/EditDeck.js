@@ -1,18 +1,18 @@
 
 import React, {useState, useEffect} from "react";
-import {Link, useHistory, useParams} from "react-router-dom";
+import {Link, useParams, useHistory} from "react-router-dom";
 import Header from "../Layout";
 import { updateDeck, readDeck } from "../utils/api";
 
 function EditDeck () {
+  const history = useHistory();
   const {deckId} = useParams();
   const [deck, setDeck] = useState({"id": '', "name": '', "description": '', "cards": '',});
   useEffect(() => {
     readDeck(deckId)
     .then(setDeck);
-  }, [])
+  }, [deckId])
   
-  const history = useHistory();
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
 
@@ -30,10 +30,10 @@ function EditDeck () {
   const handleDesc = (event) => setDesc(event.target.value)
   const handleSubmit = event => {
     event.preventDefault();
-        
+    console.log("1")
     const deck = {"name":name, "description":desc, "id":deckId};
     updateDeck(deck);
-    
+    history.goBack()
   }
 
     return <div>

@@ -1,5 +1,9 @@
 # Project-Qualifed-Flashcards-1
 
+Link: https://joshuasorby.github.io/Project-Qualifed-Flashcards-1/
+
+You must install and run the command "npm run start:server" to have the application work.
+
 A flashcard application.
 
 Clicking New Deck will propmt the user with a form to fill out the description and name of a deck. 
